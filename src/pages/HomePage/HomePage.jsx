@@ -123,13 +123,13 @@ const HomePage = () => {
                         <ButtonComponent textbutton={'Xem ngay'} className='styleButtonEnter' onClick={handleNavigateGear} />
                     </div>
                 </div>
-                <div className='WrapperMenu' style={{ backgroundColor: 'rgb(242,246,250)' }}>
-                    <img alt="Custom" src={Gears} />
+                <div className='WrapperMenu' style={{ backgroundColor: 'rgb(111,183,255)' }}>
                     <div style={{ textAlign: 'center', alignItems: 'center', marginRight: '50px', display: 'flex', flexDirection: 'column' }}>
                         <h4>Gears Change</h4>
                         <div>Lựa chọn các phụ kiện PC, thiết bị ngoại vi, quần áo PCBUYPOWER yêu thích của bạn dựa trên hệ thống chuyên gia gợi ý của chúng tôi!</div>
                         <ButtonComponent textbutton={'Xem ngay'} className='styleButtonEnter' onClick={handleNavigateHCG} />
                     </div>
+                    <img alt="Custom" src={Custom} />
                 </div>
                 <div style={{ textAlign: 'center', padding: '20px 200px' }}>
                     <h4>Why PCPOWER?</h4>
