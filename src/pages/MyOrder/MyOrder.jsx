@@ -137,7 +137,7 @@ const MyOrderPage = () => {
                                 <span style={{ fontSize: '15px' }}><b>Ngày mua:</b> {formatDate(order.createdAt)}</span>
                             </Col>
                             <Col span={5}>
-                                <span style={{ fontSize: '15px', color: 'red' }}><b>Tổng tiền: {formatTotalPrice(order.totalPrice)}</b></span>
+                                <span style={{ fontSize: '15px', color: 'red' }}><b>Tổng tiền: {formatTotalPrice(order.totalPrice)}<br/>{order.statusPay}</b></span>
                             </Col>
                         </Row>
                         {order.isPaid === false ? (

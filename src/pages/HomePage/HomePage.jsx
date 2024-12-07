@@ -103,14 +103,14 @@ const HomePage = () => {
                         <ButtonComponent textbutton={'Xem ngay'} className='styleButtonEnter' onClick={handleNavigateType} />
                     </div>
                 </div>
-                {/* <div className='WrapperMenu'>
+                <div className='WrapperMenu'>
                     <div style={{ textAlign: 'center', alignItems: 'center', marginLeft: '50px', display: 'flex', flexDirection: 'column' }}>
                         <h4>Custom Gaming PC</h4>
                         <div>Tùy chỉnh xây dựng PC chơi game hoàn hảo dựa trên các trò chơi bạn chơi và chúng tôi sẽ giao hàng sau 5 ngày làm việc!</div>
                         <ButtonComponent textbutton={'Xem ngay'} className='styleButtonEnter' onClick={handleNavigateCustom} />
                     </div>
                     <img alt="Custom" src={Custom} />
-                </div> */}
+                </div>
                 <div className='WrapperMenu' style={{ backgroundColor: 'rgb(242,246,250)' }}>
                     <img alt="Custom" src={Gears} />
                     <div style={{ textAlign: 'center', alignItems: 'center', marginRight: '50px', display: 'flex', flexDirection: 'column' }}>

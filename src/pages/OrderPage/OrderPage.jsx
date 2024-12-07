@@ -11,6 +11,7 @@ import { useMutationHooks } from '../../hooks/useMutationHook';
 import * as UserSevice from '../../services/UserService';
 import * as OrderSevice from '../../services/OrderService';
 import { updateUser } from '../../redux/slide/userSlide';
+import axios from 'axios';
 
 
 
@@ -128,6 +129,58 @@ const OrderPage = () => {
         })
         mutation.mutate({ id: user?.id, email, name, phone, address, access_token: user?.access_token });
     }
+    
+    const handlePayMOMO = async () => {
+        try {
+            // 1. Gọi API thanh toán MoMo
+            const response = await axios.post('http://localhost:3001/payment', {
+                amount: total,
+                orderInfo: 'Thanh toán đơn hàng',
+                // ...
+            });
+    
+            if (response.data.payUrl) {
+                // 2. Lưu đơn hàng vào database
+                try {
+                    await mutationAddOrder.mutateAsync({
+                        access_token: user?.access_token,
+                        cartItems: cart,
+                        fullname: name,
+                        email: email,
+                        phone: phone,
+                        address: address,
+                        paymentMethod: valueRadio,
+                        totalPrice: total,
+                        user: user?.id,
+                        statusPay: 'Đã thanh toán' // Trạng thái ban đầu
+                    });
+    
+                    // 3. Cập nhật thông tin người dùng (nếu cần)
+                    await mutation.mutateAsync({
+                        id: user?.id,
+                        email,
+                        name,
+                        phone,
+                        address,
+                        access_token: user?.access_token
+                    });
+    
+                    // 4. Chuyển hướng đến trang thanh toán MoMo
+                    window.location.href = response.data.payUrl;
+                } catch (mutationError) {
+                    console.error('Lỗi khi lưu đơn hàng:', mutationError);
+                    // Xử lý lỗi, có thể hiển thị thông báo cho người dùng
+                }
+            } else {
+                console.error('Không nhận được URL thanh toán');
+            }
+        } catch (error) {
+            console.error('Lỗi khi gọi API thanh toán:', error);
+            // Xử lý lỗi, có thể hiển thị thông báo cho người dùng
+        }
+    };
+
+
     useEffect(() => {
         if (mutationAddOrder.isSuccess && mutationAddOrder.data?.status !== 'ERR') {
             message.success('Thanh toán thành công');
@@ -263,7 +316,7 @@ const OrderPage = () => {
                             </Space>
                         </Radio.Group>
                         <br />
-                        {valueRadio === 2 && (
+                        {(valueRadio === 2 || valueRadio === 3) && (
                             <>
                                 <div style={{ fontSize: '15px', display: 'flex', width: '100%' }}>Địa chỉ nhận hàng:</div>
                                 <InputComponent
@@ -276,10 +329,13 @@ const OrderPage = () => {
                             </>
                         )}
                         {valueRadio === 3 && (
-                            <div style={{ width: '100%', height: '60px' }}>
-                                <Button style={{ width: '100%', height: '100%' }}>
-                                    Thanh toán Paypal
-                                </Button>
+                            <div className='form'>
+                                <ButtonComponent
+                                    textbutton="QR Momo"
+                                    size="large"
+                                    className='styleButtonEnter'
+                                    onClick={handlePayMOMO}
+                                />
                             </div>
                         )}
                         {(valueRadio === 1 || valueRadio === 2) && (

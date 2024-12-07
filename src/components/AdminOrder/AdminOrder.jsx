@@ -160,7 +160,7 @@ export const AdminOrder = () => {
                                 <span style={{ fontSize: '15px' }}><b>Ngày mua:</b> {formatDate(order.createdAt)}</span>
                             </Col>
                             <Col span={5}>
-                                <span style={{ fontSize: '15px', color: 'red' }}><b>Tổng tiền: {formatTotalPrice(order.totalPrice)}</b></span>
+                                <span style={{ fontSize: '15px', color: 'red' }}><b>Tổng tiền: {formatTotalPrice(order.totalPrice)}<br/>{order.statusPay}</b></span>
                             </Col>
                         </Row>
                         <Row style={{ alignItems: 'center', justifyContent: 'center', height: '30px' }}>
@@ -392,7 +392,7 @@ export const AdminNewOrder = () => {
                                 <span style={{ fontSize: '15px' }}><b>Ngày mua:</b> {formatDate(order.createdAt)}</span>
                             </Col>
                             <Col span={5}>
-                                <span style={{ fontSize: '15px', color: 'red' }}><b>Tổng tiền: {formatTotalPrice(order.totalPrice)}</b></span>
+                                <span style={{ fontSize: '15px', color: 'red' }}><b>Tổng tiền: {formatTotalPrice(order.totalPrice)}<br/>{order.statusPay}</b></span>
                             </Col>
                         </Row>
                         <Row style={{ alignItems: 'center', justifyContent: 'center', height: '30px' }}>
@@ -624,7 +624,7 @@ export const AdminDeliveredOrder = () => {
                                 <span style={{ fontSize: '15px' }}><b>Ngày mua:</b> {formatDate(order.createdAt)}</span>
                             </Col>
                             <Col span={5}>
-                                <span style={{ fontSize: '15px', color: 'red' }}><b>Tổng tiền: {formatTotalPrice(order.totalPrice)}</b></span>
+                                <span style={{ fontSize: '15px', color: 'red' }}><b>Tổng tiền: {formatTotalPrice(order.totalPrice)}<br/>{order.statusPay}</b></span>
                             </Col>
                         </Row>
                         <Row style={{ alignItems: 'center', justifyContent: 'center', height: '30px' }}>
@@ -856,7 +856,7 @@ export const AdminPaidedOrder = () => {
                                 <span style={{ fontSize: '15px' }}><b>Ngày mua:</b> {formatDate(order.createdAt)}</span>
                             </Col>
                             <Col span={5}>
-                                <span style={{ fontSize: '15px', color: 'red' }}><b>Tổng tiền: {formatTotalPrice(order.totalPrice)}</b></span>
+                                <span style={{ fontSize: '15px', color: 'red' }}><b>Tổng tiền: {formatTotalPrice(order.totalPrice)}<br/>{order.statusPay}</b></span>
                             </Col>
                         </Row>
                         <Row style={{ alignItems: 'center', justifyContent: 'center', height: '30px' }}>
