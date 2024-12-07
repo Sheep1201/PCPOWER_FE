@@ -52,7 +52,7 @@ const HomePage = () => {
         window.scrollTo(0, 0);
     }
     const handleNavigateHCG = () => {
-        window.location.href = 'http://localhost:3000';
+        window.location.href = 'https://hcgpcpower.vercel.app/';
         window.scrollTo(0, 0);
     }
     const handleNavigateCustom = () => {
