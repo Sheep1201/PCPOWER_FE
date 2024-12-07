@@ -115,7 +115,12 @@ const HomePage = () => {
                     <img alt="Custom" src={Gears} />
                     <div style={{ textAlign: 'center', alignItems: 'center', marginRight: '50px', display: 'flex', flexDirection: 'column' }}>
                         <h4>Gears Store</h4>
-                        <div>Chuẩn bị và sẵn sàng chơi game với các phụ kiện PC, thiết bị ngoại vi, quần áo iBUYPOWER yêu thích của bạn và hơn thế nữa!</div>
+                        <div>Chuẩn bị và sẵn sàng chơi game với các phụ kiện PC, thiết bị ngoại vi, quần áo PCBUYPOWER yêu thích của bạn và hơn thế nữa!</div>
+                        <ButtonComponent textbutton={'Xem ngay'} className='styleButtonEnter' onClick={handleNavigateGear} />
+                    </div>
+                    <div style={{ textAlign: 'center', alignItems: 'center', marginRight: '50px', display: 'flex', flexDirection: 'column' }}>
+                        <h4>Gears Change</h4>
+                        <div>Lựa chọn các phụ kiện PC, thiết bị ngoại vi, quần áo PCBUYPOWER yêu thích của bạn dựa trên hệ thống chuyên gia gợi ý của chúng tôi!</div>
                         <ButtonComponent textbutton={'Xem ngay'} className='styleButtonEnter' onClick={handleNavigateGear} />
                     </div>
                 </div>
